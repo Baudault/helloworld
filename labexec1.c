@@ -12,19 +12,28 @@ int exec(char *str1){
     for(i = 0; i < (80 - strlen(str1))/2; i++){ 
         strcat(empty, " ");
     }
-
     strcat(str1, empty);
     strrev(str1);
     strcat(str1, empty);
     strrev(str1);
 }
 
-int main(){
-    char str1[255]; /*Инициализация вводимой строки*/
-    scanf("%s", str1); /*Cчитывание строки*/
-    
-    exec(str1); /*Исполнение обработки*/
+/*Функция, убирающая пробелы из строки*/
+int clean(char *str1){
+    const char* d = str1;
+    do {
+        while (*d == ' ') {
+            ++d;
+        }
+    } while (*str1++ = *d++);
+    }
 
-    printf("%s", str1); /*Вывод обработанной строки*/
-    printf("%d", strlen(str1)); /* Дополнительно: вывод кол-во символов обработанной строки*/
+int main(){
+    for (; ;){
+    char str1[256]; /*Инициализация вводимой строки*/
+    scanf("%s", str1); /*Ввод строки*/
+    clean(str1); /*Удаление пробелов (если они имеются)*/
+    exec(str1); /*Исполнение обработки*/
+    printf("%s\n", str1); /*Вывод обработанной строки*/
+    }
 }
